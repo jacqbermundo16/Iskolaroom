@@ -6,7 +6,6 @@
     <title>Time</title>
     <link rel="stylesheet" href="time.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
 <body>
     <header>
@@ -40,36 +39,65 @@
         </div>
 
         <div class="room-grid" id="roomGrid"></div>
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <img src="imgs/Picture.png" alt="Classroom Image">
+                <p id="modalText"></p>
+            </div>
+        </div>
     </div>
 
     <script>
         function toggleDropdown() {
-    const dropdown = document.getElementById('adminDropdown');
-    dropdown.classList.toggle('active');
-}
+            const dropdown = document.getElementById('adminDropdown');
+            dropdown.classList.toggle('active');
+        }
 
-// Close the dropdown if clicked outside
-window.addEventListener('click', function (event) {
-    const dropdown = document.getElementById('adminDropdown');
-    const adminDropdown = document.querySelector('.admin-dropdown');
-    if (!adminDropdown.contains(event.target) && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('active');
-    }
-});
+        // Close the dropdown if clicked outside
+        window.addEventListener('click', function (event) {
+            const dropdown = document.getElementById('adminDropdown');
+            const adminDropdown = document.querySelector('.admin-dropdown');
+            if (!adminDropdown.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
 
-        
         const roomGrid = document.getElementById('roomGrid');
-        const dates = Array(12).fill('20:45:04 AM'); // Example array of times
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+        const modalText = document.getElementById('modalText');
+        const times = Array(12).fill('20:45:04 AM'); // Example array of times
 
-        dates.forEach(date => {
+        // Loop through the times array and create the room cards
+        times.forEach(time => {
             const roomCard = document.createElement('div');
             roomCard.className = 'room-card';
-
+            
             roomCard.innerHTML = `
-                <div class="room-name">${date}</div>
+                <div class="room-name">${time}</div>
             `;
 
-            roomGrid.appendChild(roomCard);
+            // Add click event listener to each room card
+            roomCard.addEventListener('click', () => {
+                modal.style.display = 'flex'; // Show modal
+                modalText.textContent = `${time}`; 
+            });
+
+            roomGrid.appendChild(roomCard); // Add the room card to the grid
+        });
+
+        // Close the modal when the close button is clicked
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none'; // Hide modal
+        });
+
+        // Close the modal if clicked outside
+        window.addEventListener('click', event => {
+            if (event.target === modal) {
+                modal.style.display = 'none'; // Hide modal if clicked outside
+            }
         });
     </script>
 </body>
