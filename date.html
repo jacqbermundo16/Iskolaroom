@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSkoLaROOMS</title>
+    <link rel="stylesheet" href="date.css">
+</head>
+<body>
+    <header>
+        <h1>iSkoLaROOMS</h1>
+        <div class="admin-section">
+            <img src="imgs/admin.png" alt="Admin">
+            <div class="admin-dropdown">
+                <span>Admin</span>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="help-circle">?</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2><a href="#" class="back-arrow">&#8592;</a>CEA - 300</h2>
+
+        <div class="search-bar">
+            <div class="input-container">
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="room-grid" id="roomGrid"></div>
+    </div>
+
+    <script>
+        const roomGrid = document.getElementById('roomGrid');
+        const dates = Array(12).fill('12-11-2024'); // Example array of dates
+
+        dates.forEach(date => {
+            const roomCard = document.createElement('div');
+            roomCard.className = 'room-card';
+
+            roomCard.innerHTML = `
+                <div class="room-name">${date}</div>
+            `;
+
+            roomGrid.appendChild(roomCard);
+        });
+    </script>
+</body>
+</html>
