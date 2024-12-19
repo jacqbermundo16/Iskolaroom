@@ -248,8 +248,8 @@ header .help-circle {
     background-color: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    top: 50px; /* Adjust to fit your design */
-    right: 0;
+    top: 94px; /* Adjust to fit your design */
+    right: 50px;
     z-index: 10;
     padding: 10px;
 }
