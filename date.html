@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iSkoLaROOMS</title>
     <link rel="stylesheet" href="date.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 <body>
     <header>
         <h1>iSkoLaROOMS</h1>
         <div class="admin-section">
             <img src="imgs/admin.png" alt="Admin">
-            <div class="admin-dropdown">
+            <div class="admin-dropdown" onclick="toggleDropdown()">
                 <span>Admin</span>
-                <span class="arrow">▼</span>
+                <span class="arrow">&#9662;</span>
+            </div>
+            <div class="dropdown-menu" id="adminDropdown">
+                <a href="#"><i class="material-icons">person</i> Profile</a>
+                <a href="#"><i class="material-icons">exit_to_app</i> Logout</a>
             </div>
             <div class="help-circle">?</div>
         </div>
@@ -37,6 +43,21 @@
     </div>
 
     <script>
+        function toggleDropdown() {
+    const dropdown = document.getElementById('adminDropdown');
+    dropdown.classList.toggle('active');
+}
+
+// Close the dropdown if clicked outside
+window.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('adminDropdown');
+    const adminDropdown = document.querySelector('.admin-dropdown');
+    if (!adminDropdown.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
+        
         const roomGrid = document.getElementById('roomGrid');
         const dates = Array(12).fill('12-11-2024'); // Example array of dates
 

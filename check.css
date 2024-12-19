@@ -252,3 +252,36 @@ header .help-circle {
 .room-card button:hover {
     background-color: #5b0c0a;
 }
+
+/* Dropdown Menu */
+#adminDropdown {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    top: 50px; /* Adjust to fit your design */
+    right: 0;
+    z-index: 10;
+    padding: 10px;
+}
+
+#adminDropdown.active {
+    display: block; /* Show when active */
+}
+
+#adminDropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    text-decoration: none;
+    color: #430A09;
+    font-size: 14px;
+    gap: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+#adminDropdown a:hover {
+    background-color: #f2f2f2;
+}
