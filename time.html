@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <link rel="stylesheet" href="time.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1>iSkoLaROOMS</h1>
+        <div class="admin-section">
+            <img src="imgs/admin.png" alt="Admin">
+            <div class="admin-dropdown" onclick="toggleDropdown()">
+                <span>Admin</span>
+                <span class="arrow">&#9662;</span>
+            </div>
+            <div class="dropdown-menu" id="adminDropdown">
+                <a href="#"><i class="material-icons">person</i> Profile</a>
+                <a href="#"><i class="material-icons">exit_to_app</i> Logout</a>
+            </div>
+            <div class="help-circle">?</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2>
+            <a href="#" class="back-arrow">
+                <img src="imgs/arrow_back.png" alt="Back" style="width: 35px; height: auto;">
+            </a>
+            12-05-2024
+        </h2>
+
+        <div class="search-bar">
+            <div class="input-container">
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+
+        <div class="room-grid" id="roomGrid"></div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+    const dropdown = document.getElementById('adminDropdown');
+    dropdown.classList.toggle('active');
+}
+
+// Close the dropdown if clicked outside
+window.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('adminDropdown');
+    const adminDropdown = document.querySelector('.admin-dropdown');
+    if (!adminDropdown.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
+
+        
+        const roomGrid = document.getElementById('roomGrid');
+        const dates = Array(12).fill('20:45:04 AM'); // Example array of times
+
+        dates.forEach(date => {
+            const roomCard = document.createElement('div');
+            roomCard.className = 'room-card';
+
+            roomCard.innerHTML = `
+                <div class="room-name">${date}</div>
+            `;
+
+            roomGrid.appendChild(roomCard);
+        });
+    </script>
+</body>
+</html>
