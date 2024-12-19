@@ -1,25 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
     background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     display: flex;
-    flex: 1;
     width: 1240px;
     height: 590px;
-    margin: 30px 76px 20px;
 }
 
 .left-section {
-    justify-content: center;
-    align-items: center;
     background-color: #ffffff;
     width: 465px;
     height: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-box {
@@ -30,7 +37,7 @@ body {
 
 .login-box h4 {
     color: black;
-    margin: 0px;
+    margin: 0;
 }
 
 .login-box input {
@@ -63,7 +70,6 @@ body {
     display: inline-block;
     color: blue;
     text-decoration: none;
-    margin-bottom: 0px;
     margin-top: 130px;
 }
 
@@ -74,13 +80,16 @@ body {
 
 .right-section {
     background-image: url('imgs/Background.png');
-    justify-content: center;
-    align-items: center;
+    background-size: cover;
+    background-position: center;
+    width: 739px;
+    height: 590px;
     position: relative;
     color: white;
     text-align: center;
-    width: 739px;
-    height: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .right-section .content {
@@ -98,11 +107,12 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-img{
-    margin-top: 220px;
-}
 .right-section p {
     font-size: 32px;
     font-style: italic;
-    margin: 0px;
+    margin: 0;
+}
+
+img {
+    margin-top: 220px;
 }
