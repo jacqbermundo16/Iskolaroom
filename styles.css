@@ -3,8 +3,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
-    width: 1440px;
-    height: 1024px;
     background-color: #f2f2f2;
 }
 
@@ -13,7 +11,7 @@ body {
     flex: 1;
     width: 1240px;
     height: 590px;
-    margin: 230px 118px 204px;
+    margin: 30px 76px 20px;
 }
 
 .left-section {
