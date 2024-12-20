@@ -273,3 +273,11 @@ header .help-circle {
 #adminDropdown a:hover {
     background-color: #f2f2f2;
 }
+
+.container a {
+    display: inline-block; /* Make the anchor tag a block element */
+    cursor: pointer; /* Ensure the cursor is a pointer when hovering */
+    position: relative;
+}
+
+
